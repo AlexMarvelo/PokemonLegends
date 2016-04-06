@@ -59,19 +59,21 @@ function getArrayOfPokemonsWithRangeAndOffset(range, offset) {
 }
 
 function loadCards() {
-  var loadButton = document.getElementById('loadMoreButton');
-  loadButton.classList.add("button_pushed");
+  var loadButton = $('#loadMoreButton');
+  loadButton.addClass('button_pushed').attr('diabled', 'disabled');
   pokemonPromises = getArrayOfPokemonsWithRangeAndOffset(Config.cardsRange, Config.offset);
   Config.offset += Config.cardsRange;
-  Promise.all(pokemonPromises).then((pokemons) => {
+  Promise.all(pokemonPromises).then((newPokemons) => {
     hidePreloader();
-    loadButton.classList.remove("button_pushed");
-    pokemonsArray = pokemonsArray.concat(pokemons);
-    if (selectedTypes.length > 0) {
-      pokemonsArray = filterPokemons(pokemonsArray, selectedTypes);
-    };
+    loadButton.removeClass('button_pushed').removeAttr('disabled');
+    pokemonsArray = pokemonsArray.concat(newPokemons);
+    console.log('all: ', pokemonsArray);
+    console.log('selected: ', selectedTypes);
+    var pokemonsToShow = filterPokemons(pokemonsArray, selectedTypes);
     ReactDOM.render(
-      <SmallCardList pokemons={pokemonsArray}/>, document.getElementById('smallCard__container'));});
+      <SmallCardList pokemons={pokemonsToShow}/>, document.getElementById('smallCard__container')
+    );
+  });
 }
 
 
@@ -98,34 +100,6 @@ function loadFilter() {
     initFilterHandling();
   });
 }
-
-// function initFilterHandling() {
-//   var filter = $('form#filter');
-//   var activateBtn = filter.find('#activateFilter');
-//
-//   activateBtn.click(function() {
-//     if (filter.hasClass('filter__active')) {
-//       selectedTypes.length = 0;
-//       Promise.all(pokemonPromises).then((pokemons) => {
-//         ReactDOM.render(
-//           <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
-//       });
-//     } else {
-//       filter.addClass('filter__active');
-//     }
-//     hiddenFields.toggleClass('filter__inputField_active');
-//   });
-//
-//   filter.submit(function(event) {
-//     event.preventDefault();
-//     selectedTypes = $('#filterSelect').val();
-//     Promise.all(pokemonPromises).then((pokemons) => {
-//       pokemons = filterPokemons(pokemons, selectedTypes);
-//       ReactDOM.render(
-//         <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
-//     });
-//   });
-// }
 
 function filterPokemons(pokemons, selectedTypes) {
   if (selectedTypes.length == 0) return pokemons;
@@ -160,12 +134,11 @@ function initFilterHandling(){
 
   var hideFilter = function(){
     selectedTypes.length = 0;
-    Promise.all(pokemonPromises).then((pokemons) => {
-      ReactDOM.render(
-        <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
-    });
     blocks.addClass('filter__hideCont_overflowHidden');
     filter.removeClass('filter_active');
+    ReactDOM.render(
+      <SmallCardList pokemons={pokemonsArray}/>, document.getElementById('smallCard__container')
+    );
   };
   var showFilter = function(){
     setTimeout(function(){
@@ -185,11 +158,10 @@ function initFilterHandling(){
   button.click(function(event){
     event.preventDefault();
     selectedTypes = select.val() !== null ? select.val() : []
-    Promise.all(pokemonPromises).then((pokemons) => {
-      pokemons = filterPokemons(pokemons, selectedTypes);
-      ReactDOM.render(
-        <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
-    });
+    var pokemonsToShow = filterPokemons(pokemonsArray, selectedTypes);
+    ReactDOM.render(
+      <SmallCardList pokemons={pokemonsToShow}/>, document.getElementById('smallCard__container')
+    );
   });
 }
 
