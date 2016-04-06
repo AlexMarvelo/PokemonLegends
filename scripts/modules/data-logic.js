@@ -60,15 +60,13 @@ function getArrayOfPokemonsWithRangeAndOffset(range, offset) {
 
 function loadCards() {
   var loadButton = $('#loadMoreButton');
-  loadButton.addClass('button_pushed').attr('diabled', 'disabled');
+  loadButton.addClass('button_pushed').attr('disabled', 'disabled');
   pokemonPromises = getArrayOfPokemonsWithRangeAndOffset(Config.cardsRange, Config.offset);
   Config.offset += Config.cardsRange;
   Promise.all(pokemonPromises).then((newPokemons) => {
     hidePreloader();
     loadButton.removeClass('button_pushed').removeAttr('disabled');
     pokemonsArray = pokemonsArray.concat(newPokemons);
-    console.log('all: ', pokemonsArray);
-    console.log('selected: ', selectedTypes);
     var pokemonsToShow = filterPokemons(pokemonsArray, selectedTypes);
     ReactDOM.render(
       <SmallCardList pokemons={pokemonsToShow}/>, document.getElementById('smallCard__container')
