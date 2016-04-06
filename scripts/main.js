@@ -20,6 +20,7 @@ $(document).ready(function(){
     placeholder: 'Click to select types',
     selectAll: false,
     minimumCountSelected: 6,
+    maxHeight: 350
   });
 
 
@@ -76,23 +77,26 @@ function filterHandling(){
   var button = filter.find('button[name="submitFilter"]');
   var blocks = filter.find('.filter__hideCont');
 
+  var hideFilter = function(){
+    blocks.addClass('filter__hideCont_overflowHidden');
+    filter.removeClass('filter_active');
+  };
+  var openFilter = function(){
+    setTimeout(function(){
+      blocks.removeClass('filter__hideCont_overflowHidden');
+    }, 300);
+    filter.addClass('filter_active');
+  };
+
   checkbox.click(function(){
     if (filter.hasClass('filter_active')){
-      blocks.addClass('filter__hideCont_overflowHidden');
-      // setTimeout(function(){
-      //   blocks.addClass('hidden');
-      // }, 300);
+      hideFilter();
     } else {
-      // blocks.removeClass('hidden');
-      setTimeout(function(){
-        blocks.removeClass('filter__hideCont_overflowHidden');
-      }, 300);
+      openFilter();
     }
-
-    filter.toggleClass('filter_active');
   });
 
   button.click(function(){
-    
+
   });
 }
