@@ -128,6 +128,7 @@ function loadFilter() {
 // }
 
 function filterPokemons(pokemons, selectedTypes) {
+  if (selectedTypes.length == 0) return pokemons;
   var selectedPokemons = [];
   for (var pokemonIndex in pokemons) {
     var pokemon = pokemons[pokemonIndex];
@@ -158,6 +159,11 @@ function initFilterHandling(){
   });
 
   var hideFilter = function(){
+    selectedTypes.length = 0;
+    Promise.all(pokemonPromises).then((pokemons) => {
+      ReactDOM.render(
+        <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
+    });
     blocks.addClass('filter__hideCont_overflowHidden');
     filter.removeClass('filter_active');
   };
@@ -178,7 +184,12 @@ function initFilterHandling(){
 
   button.click(function(event){
     event.preventDefault();
-
+    selectedTypes = select.val() !== null ? select.val() : []
+    Promise.all(pokemonPromises).then((pokemons) => {
+      pokemons = filterPokemons(pokemons, selectedTypes);
+      ReactDOM.render(
+        <SmallCardList pokemons={pokemons}/>, document.getElementById('smallCard__container'));
+    });
   });
 }
 
