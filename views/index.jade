@@ -5,6 +5,7 @@ doctype html
    './libs/bootstrap.min.css',
    './libs/jquery.custom-scrollbar.css',
    './libs/animate.css',
+   './libs/multiple-select.css',
    './assets/main.css', 
    ]
 -
@@ -12,6 +13,8 @@ doctype html
   './libs/jquery.min.js',
   './libs/jquery.custom-scrollbar.min.js',
   './libs/fun_with_svg_arcs.min.js',
+  './libs/jquery.formstyler.min.js',
+  './libs/multiple-select.js',
   './assets/main.js',
   ]
 html
@@ -26,7 +29,7 @@ html
     .background
     .preloader
     //- img(src="img/preloader.gif", alt="Preloader").preloader
-    .page.customScrollBlock.hidden
+    .page.customScrollBlock
       header.header
         .container
           h1.header__title Pokemon Legend
@@ -37,14 +40,15 @@ html
             section.col-md-4.col-md-push-8#bigCard__container
               include ../blocks/card/bigCard.jade
             section.col-md-8.col-md-pull-4
+              include ../blocks/filter/filter.jade
               ul.row#smallCard__container
                 - var i = 1
-                while i++ < 17
+                while i++ < 7
                   li.col-sm-4
                     include ../blocks/card/smallCard.jade
               .row
                 .col-sm-4.col-sm-push-4  
-                  button.loadMore.loadMore_gradient#loadMoreButton Load more
+                  button.button.button_gradient#loadMoreButton Load more
               
               
     each jsModule in jsModulesOnPage

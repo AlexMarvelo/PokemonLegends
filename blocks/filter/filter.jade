@@ -1,16 +1,18 @@
-form(class="filter hidden" id="filter" method="post" action="#")
-  .col-md-2
-    .input-field.filter__activateBtn
-      input(type="checkbox").filled-in#activateFilter
-      label(for="activateFilter") Use filter
-  .col-md-8
-    .input-field.filter__inputField_hiddenOnUnactive
-      select(multiple)
-        option(value="All Types" disabled selected) Choose types
-        option(value='Poison') Poison
-        option(value='Water') Water
-        option(value='Fire') Fire
-        option(value='Wind') Wind
-  .col-md-2
-    .input-field.filter__inputField_hiddenOnUnactive
-      button.btn.waves-effect.waves-light(type='submit' name='submitFilter') Filter cards
+form(id="filter" method="post" action="#").filter
+  .filter__checkboxCont
+    input(type="checkbox").filter__checkbox#activateFilter
+    label(for="activateFilter").filter__checkboxLabel Filter
+  
+  .row.filter__hideCont.filter__hideCont_overflowHidden
+    .col-md-8
+      .filter__selectCont
+        select(multiple="multiple").filter__select
+          option(value='Poison') Poison
+          option(value='Action') Action
+          option(value='Ruler') Ruler
+          option(value='Noise') Noise
+          option(value='Hand') Hand
+          option(value='Fly') Fly
+        
+    .col-md-4
+      button.button.button_gradient(type='button' name='submitFilter') Filter cards

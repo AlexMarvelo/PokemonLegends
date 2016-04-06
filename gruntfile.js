@@ -67,9 +67,14 @@ module.exports = function def(grunt) {
         src: [
               './node_modules/jquery/dist/jquery.min.js',
               './node_modules/bootstrap/dist/css/bootstrap.min.css',
+              './node_modules/jquery.formstyler/jquery.formstyler.min.js',
+              // './node_modules/jquery.formstyler/jquery.formstyler.css',
               './libs/jquery-custom-scrollbar-0.5.5/jquery.custom-scrollbar.css',
               './libs/jquery-custom-scrollbar-0.5.5/jquery.custom-scrollbar.min.js',
               './libs/SVG-Arc-Creator/fun_with_svg_arcs.min.js',
+              './libs/multiple-select/multiple-select.js',
+              './libs/multiple-select/multiple-select.css',
+              './libs/multiple-select/multiple-select.png',
               './libs/animate.css'
             ],
         dest: 'build/libs/',

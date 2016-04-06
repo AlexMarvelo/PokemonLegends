@@ -1,0 +1,125 @@
+.filter__checkbox
+  width: 60px
+  height: 30px
+  overflow: visible !important
+  background: $textColor
+  border: 1px solid #28333D
+  outline: none !important
+  float: left
+  cursor: pointer
+  +border-radius(15px)
+  +box-shadow(inset 0px 0px 3px 0px rgba(30,36,45,0.5))
+  >.jq-checkbox__div
+    position: absolute
+    width: 30px
+    height: 30px
+    top: 0
+    left: 0
+    display: inline-block
+    background: white
+    +border-radius(50%)
+    border: none
+    z-index: 2
+    +transition(left .2s linear)
+    +box-shadow(inset 0px 0px 3px 0px rgba(30,36,45,0.5))
+.filter__checkbox.checked
+  >.jq-checkbox__div
+    left: 30px
+.filter__checkbox::after
+  content: ""
+  position: absolute
+  z-index: 1
+  bottom: -1px
+  left: -1px
+  width: 60px
+  height: 30px
+  +border-radius(15px)
+  border-bottom: 1px solid #587091
+#activateFilter
+  display: none
+.filter__checkboxCont
+  position: absolute
+  left: 15px
+  top: -40px
+.filter__checkboxLabel
+  vertical-align: middle
+  font-weight: 300
+  font-size: 18px
+  line-height: 33px
+  margin: 0 10px
+.filter__checkbox
+  >.jq-checkbox__div
+    background: #ffffff /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #d3d3d3 100%) /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#d3d3d3 100%) /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffffff 0%,#d3d3d3 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+.filter__hideCont
+  +transition(height .3s ease-out)
+  height: 0
+  position: relative
+.filter__hideCont_overflowHidden
+  overflow: hidden
+.filter__selectCont
+  position: relative
+.filter__select
+  width: 100%
+  color: black
+
+.filter_active
+  .filter__hideCont
+    height: 80px
+    padding-top: 5px
+    margin-top: -5px
+
+.ms-choice
+  width: 100%
+  height: 48px
+  padding: 10px 15px
+  color: $textColor
+  text-align: left
+  font-size: 16px
+  font-weight: 300
+  outline: none
+  overflow: hidden
+  position: relative
+  border: none
+  +box-shadow(0px 0px 5px 0px #6b6b6b)
+  background: rgba(255,255,255,0.25)
+  cursor: pointer
+  +border-radius(6px)
+  >span+div
+    display: none
+  >span
+    display: block
+    position: relative
+    color: $textColor !important
+.ms-choice::before
+  content: ""
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 5px
+  background: rgba(255,255,255,0.2)
+.ms-drop
+  +box-shadow(0px 0px 5px 0px #6b6b6b !important)
+  background: rgba(255,255,255,0.6)
+  color: $textColor
+  border: none
+  margin-top: 5px
+  >ul
+    padding: 10px 0 10px
+    >li
+      label
+        margin-bottom: 0
+        padding: 10px 15px 10px
+        cursor: pointer
+      label:hover
+        background: rgba(255,255,255,.5)
+      span
+        font-size: 16px
+        font-weight: 400
+        margin-left: 10px
+  input[type="checkbox"]
+    vertical-align: baseline
+    cursor: pointer

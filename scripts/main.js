@@ -15,9 +15,18 @@ $(document).ready(function(){
     winWidth = $(window).width();
   });
 
-  showPreloader();
-  setTimeout(hidePreloader, 2000);
+  $('input').styler();
+  $('select').multipleSelect({
+    placeholder: 'Click to select types',
+    selectAll: false,
+    minimumCountSelected: 6,
+  });
+
+
+  // showPreloader();
+  // setTimeout(hidePreloader, 2000);
   floatingBigCard();
+  filterHandling();
 });
 
 
@@ -44,7 +53,7 @@ function hidePreloader(){
 function floatingBigCard(){
   var bigCardContainer = $('#bigCard__container'),
       smallCardsContainer = $('#smallCard__container');
-  
+
     $(window).scroll(function(){
       if (winWidth > 991){
         var offset = $(window).scrollTop(),
@@ -58,4 +67,32 @@ function floatingBigCard(){
         bigCardContainer.css('padding-top', 0);
       }
     });
+}
+
+function filterHandling(){
+  var filter = $('#filter');
+  var select = filter.find('select.filter__select');
+  var checkbox = filter.find('.filter__checkbox');
+  var button = filter.find('button[name="submitFilter"]');
+  var blocks = filter.find('.filter__hideCont');
+
+  checkbox.click(function(){
+    if (filter.hasClass('filter_active')){
+      blocks.addClass('filter__hideCont_overflowHidden');
+      // setTimeout(function(){
+      //   blocks.addClass('hidden');
+      // }, 300);
+    } else {
+      // blocks.removeClass('hidden');
+      setTimeout(function(){
+        blocks.removeClass('filter__hideCont_overflowHidden');
+      }, 300);
+    }
+
+    filter.toggleClass('filter_active');
+  });
+
+  button.click(function(){
+    
+  });
 }
