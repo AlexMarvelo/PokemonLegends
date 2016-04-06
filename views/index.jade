@@ -28,7 +28,7 @@ html
   body
     .background
     .preloader
-    .page.customScrollBlock
+    .page.customScrollBlock.hidden
       header.header
         .container
           h1.header__title Pokemon Legend
@@ -37,14 +37,9 @@ html
         .container
           .row
             section.col-md-4.col-md-push-8#bigCard__container
-              include ../blocks/card/bigCard.jade
             section.col-md-8.col-md-pull-4
-              include ../blocks/filter/filter.jade
-              ul.row#smallCard__container
-                - var i = 1
-                while i++ < 10
-                  li.col-sm-4
-                    include ../blocks/card/smallCard.jade
+              #filter__container
+              #smallCard__container
               .row
                 .col-sm-4.col-sm-push-4  
                   button.button.button_gradient#loadMoreButton Load more

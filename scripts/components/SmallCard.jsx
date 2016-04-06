@@ -17,29 +17,28 @@ const SmallCard = React.createClass({
     var image = pokemon.image.src;
     for (var i = 0; i < pokemon.types.length; i++) {
       types.push(
-        <div className='chip chip_padded' key={pokemon.types[i]}>
+        <li className="card__lable" key={pokemon.types[i]}>
           {pokemon.types[i].charAt(0).toUpperCase() + pokemon.types[i].slice(1)}
-        </div>
+        </li>
       );
     }
     return (
-      <div className="col-sm-4 {display}">
-        <a href = "#" onClick={this.showBigCard}>
-          <div className='mdl-card mdl-shadow--4dp mdl-card_sized'>
-            <div className='mdl-card__media mdl-card__media_background-white'>
-              <img src={image} alt='Pokemon' className='card_image'/>
-            </div>
-            <div className='mdl-card__title mdl-card__title_centered'>
-              <h2 className='mdl-card__title-text'>
-                {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-              </h2>
-            </div>
-            <div className='card_labels'>
-              {types}
-            </div>
+      <li className="col-sm-4">
+        <div className="card card_small" onClick={this.showBigCard}>
+          <div className="card__imgCont">
+            <img
+              src={image}
+              className="card__img"
+              alt={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}/>
           </div>
-        </a>
-      </div>
+          <h3 className="card__title">
+            {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+          </h3>
+          <ul className="card__lables">
+            {types}
+          </ul>
+        </div>
+      </li>
     );
   }
 });

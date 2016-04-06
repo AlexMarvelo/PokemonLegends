@@ -13,24 +13,21 @@ const Filter = React.createClass({
     }
 
     return (
-      <form id='filter' method='post' action='#' className='filter hidden'>
-        <div className='col-md-2'>
-          <div className='input-field filter__activateBtn'>
-            <input type='checkbox' id='activateFilter' className='filled-in'/>
-            <label htmlFor='activateFilter'>Use filter</label>
-          </div>
+      <form id="filter" method="post" action="#" className="filter">
+        <div className="filter__checkboxCont">
+          <input type="checkbox" id="activateFilter" className="filter__checkbox"/>
+          <label htmlFor="activateFilter" className="filter__checkboxLabel">Filter</label>
         </div>
-        <div className='col-md-8'>
-          <div className='input-field filter__inputField_hiddenOnUnactive'>
-            <select id='filterSelect' multiple='multiple'>
-              <option value='All Types' disabled='disabled' defaultSelected='true' >Choose types</option>
-              {options}
-            </select>
+        <div className="row filter__hideCont filter__hideCont_overflowHidden">
+          <div className="col-sm-8">
+            <div className="filter__selectCont">
+              <select multiple="multiple" className="filter__select">
+                {options}
+              </select>
+            </div>
           </div>
-        </div>
-        <div className='col-md-2'>
-          <div className='input-field filter__inputField_hiddenOnUnactive'>
-            <button type='submit' name='submitFilter' className='btn waves-effect waves-light'>Filter cards</button>
+          <div className="col-sm-4">
+            <button type="button" name="submitFilter" className="button button_gradient">Filter cards</button>
           </div>
         </div>
       </form>

@@ -8,7 +8,10 @@ const SmallCardList = React.createClass({
     for (var i = 0; i < pokemons.length; i++) {
       smallCardsList.push(<SmallCard pokemon={pokemons[i]} key={pokemons[i].id}/>);
     }
-    return (<div>{smallCardsList}</div>);
+    return (
+      <ul className="row">
+        {smallCardsList}
+      </ul>);
   }
 });
 export default SmallCardList;

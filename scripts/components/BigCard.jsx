@@ -12,11 +12,11 @@ const BigCard = React.createClass({
     for (var variable in pokemon) {
       if (pokemon.hasOwnProperty(variable) && variable != 'id' && variable != 'name' && variable != 'image' && variable != 'types') {
         rows.push(
-          <tr key={this.beautifyText(variable)}>
-            <td className='mdl-data-table__cell--non-numeric'>
+          <tr key={this.beautifyText(variable)} className="card__tableTr">
+            <td className="card__tableTd">
               {this.beautifyText(variable)}
             </td>
-            <td>
+            <td className="card__tableTd">
               {pokemon[variable]}
             </td>
           </tr>
@@ -24,22 +24,25 @@ const BigCard = React.createClass({
       }
     }
     return (
-      <div className='mdl-card mdl-shadow--4dp bigCard'>
-        <div className='mdl-card__title'>
-          <img src={image} alt='Pokemon' className='bigCard__img'/>
+      <div className="card card_big">
+        <div className="card__imgCont">
+          <img
+            src={image}
+            alt={pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+            className="card__img"/>
         </div>
-        <h2 className='mdl-card__title-text'>
+        <h3 className="card__title">
           {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-        </h2>
-        <div className='mdl-card__supporting-text'>
-          <table className='mdl-data-table mdl-js-data-table'>
-            <thead>
-              <tr>
-                <th className='mdl-data-table__cell--non-numeric'>Type</th>
-                <th className='mdl-data-table__cell--non-numeric'>Value</th>
+        </h3>
+        <div className="card__body">
+          <table className="card__table">
+            <thead className="card__tableHead">
+              <tr className="card__tableTr">
+                <th className="card__tableTh">Type</th>
+                <th className="card__tableTh">Value</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="card__tableBody">
               {rows}
             </tbody>
           </table>
