@@ -1,0 +1,51 @@
+doctype html
+- var pageTitle="Pokemon Legends"
+-
+   var cssModulesOnPage = [
+   './libs/bootstrap.min.css',
+   './libs/jquery.custom-scrollbar.css',
+   './libs/animate.css',
+   './assets/main.css', 
+   ]
+-
+  var jsModulesOnPage = [
+  './libs/jquery.min.js',
+  './libs/jquery.custom-scrollbar.min.js',
+  './libs/fun_with_svg_arcs.min.js',
+  './assets/main.js',
+  ]
+html
+  head
+    meta(charset='utf-8')
+    title=pageTitle
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0")
+    each cssModule in cssModulesOnPage
+      link(type="text/css" rel="stylesheet" href="#{cssModule}")
+  body
+    .background
+    .preloader
+    //- img(src="img/preloader.gif", alt="Preloader").preloader
+    .page.customScrollBlock.hidden
+      header.header
+        .container
+          h1.header__title Pokemon Legend
+      
+      main
+        .container
+          .row
+            section.col-md-4.col-md-push-8#bigCard__container
+              include ../blocks/card/bigCard.jade
+            section.col-md-8.col-md-pull-4
+              ul.row#smallCard__container
+                - var i = 1
+                while i++ < 17
+                  li.col-sm-4
+                    include ../blocks/card/smallCard.jade
+              .row
+                .col-sm-4.col-sm-push-4  
+                  button.loadMore.loadMore_gradient#loadMoreButton Load more
+              
+              
+    each jsModule in jsModulesOnPage
+      script(src="#{jsModule}")

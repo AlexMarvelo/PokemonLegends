@@ -1,0 +1,49 @@
+@import "../node_modules/bourbon/app/assets/stylesheets/_bourbon"
+@import "mixins"
+@import "variables"
+
+ul
+  list-style: none
+  padding: 0
+  margin: 0
++font-face("VantaThin", "../font/VantaThin", 300, $file-formats: ttf eot woff svg)
++font-face("Roboto", "../font/roboto-regular-webfont", normal, $file-formats: ttf eot woff woff2 svg)
++font-face("Roboto", "../font/roboto-light-webfont", 300, $file-formats: ttf eot woff woff2 svg)
+
+
+.background
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+  background: url('../img/blurred_background-1400.jpg') no-repeat center
+  +background-size(cover)
+.page
+  font-family: Roboto, Helveticam, sans-serif
+  font-size: 14px
+  line-height: 18px
+  color: white
+
+
+@import "../blocks/card/card"
+@import "../blocks/filter/filter"
+@import "../blocks/loadMore/loadMore"
+@import "../blocks/preloader/preloader"
+
+
+.header__title
+  font-family: VantaThin, Verdana, sans-serif
+  font-weight: 300
+  margin: 30px 0
+  text-align: center
+  font-size: 40px
+  line-height: 40px
+.preloader
+  position: absolute
+  width: 180px
+  height: 180px
+  top: 50%
+  left: 50%
+  +transform(translate(-50%, -50%))

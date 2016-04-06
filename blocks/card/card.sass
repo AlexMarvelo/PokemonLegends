@@ -1,0 +1,94 @@
+.card
+  background: rgba(255,255,255,0.25)
+  +border-radius(6px)
+  overflow: hidden
+  padding: 5px 15px 15px
+  position: relative
+  color: $textColor
+  max-width: 230px
+  margin: 0 auto 40px
+  +box-shadow(0px 0px 5px 0px rgba(107,107,107,1))
+.card::before
+  content: ""
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 5px
+  background: rgba(255,255,255,0.2)
+.card__imgCont
+  margin-top: 15px
+  text-align: center
+.card__img
+  height: 100px
+  width: auto
+  margin: 0 auto
+.card__title
+  font-weight: 300
+  font-size: 28px
+  text-align: center
+  margin: 15px 0
+.card__lables::after
+  content: ""
+  display: table
+  clear: both
+.card__lable
+  +border-radius(4px)
+  overflow: hidden
+  display: inline-block
+  float: left
+  font-size: 16px
+  text-align: center
+  font-weight: 300
+  line-height: 16px
+  padding: 6px
+  background: rgba(255,255,255,0.2)
+  width: 40%
+  margin: 0 5%
+.card__table
+  font-weight: 300
+  width: 100%
+  font-size: 16px
+  line-height: 16px
+  +border-radius(4px)
+  overflow: hidden
+.card__tableTh,
+.card__tableTd
+  font-weight: 300
+  padding: 10px 15px
+  width: 50%
+  background: rgba(255,255,255,0.2)
+.card__tableHead
+  position: relative
+.card__tableHead::after
+  content: ""
+  position: absolute
+  left: 0
+  bottom: 0
+  margin-left: 15px
+  margin-right: 15px
+  height: 1px
+  background: $textColor
+.card__tableHead
+  border-bottom: 4px solid transparent
+
+
+.card_small
+  cursor: pointer
+
+
+.card_big
+  max-width: 360px
+  .card__title
+    color: white
+    font-size: 32px
+    font-family: VantaThin, Verdana, sans-serif
+  .card__img
+    height: 120px
+  .card__table
+    margin-top: 30px
+    margin-bottom: 10px
+
+@media screen and (min-width: 992px)
+  .card_big
+    margin-bottom: 0

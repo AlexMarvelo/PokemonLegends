@@ -1,0 +1,46 @@
+-
+  var pokemonData = {
+    name: 'Bulbasaur',
+    props: [{
+      type: 'Attack',
+      fire: 52
+    },{
+      type: 'Defense',
+      fire: 39
+    },{
+      type: 'HP',
+      fire: 25
+    },{
+      type: 'SP Attack',
+      fire: 90
+    },{
+      type: 'SP Defense',
+      fire: 20,
+    },{
+      type: 'Speed',
+      fire: 13
+    },{
+      type: 'Weight',
+      fire: 2
+    },{
+      type: 'Total Moves',
+      fire: 56,    
+    }]
+  }
+
+.card.card_big
+  .card__imgCont
+    img.card__img(src="./img/img_small_id=3.png", alt="#{pokemonData.name }")
+  h3.card__title= pokemonData.name 
+  .card__body
+    table.card__table
+      thead.card__tableHead
+        tr.card__tableTr
+          th.card__tableTh Type
+          th.card__tableTh Value
+      tbody.card__tableBody
+        each prop in pokemonData.props
+          tr.card__tableTr
+            td.card__tableTd= prop.type
+            td.card__tableTd= prop.fire
+  
