@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Kottans test project",
   "author": "Alexey Mironenko",
+  "homepage": "http://alexmarvelo.github.io/PokemonLegends/",
   "repository": {
     "type": "git",
     "url": "git@github.com:AlexMarvelo/PokemonLegends.git"
