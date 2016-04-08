@@ -7,6 +7,7 @@ Project is available on [gh-pages](http://alexmarvelo.github.io/PokemonLegends/)
 ##### List of used technologies:
 - react
 - es6 (with Babel transpiler)
+- browserify
 - grunt
 - jade
 - sass
