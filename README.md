@@ -22,3 +22,4 @@ cd PokemonLegends
 npm i
 grunt
 ```
+Then open build/index.html file in your browser
