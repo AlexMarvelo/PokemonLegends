@@ -23,3 +23,5 @@ npm i
 grunt
 ```
 Then open *build/index.html* file in your browser
+
+![Hello from pokemons](http://vignette1.wikia.nocookie.net/es.pokemon/images/2/2b/Pok%C3%A9mon_iniciales_de_Kanto.png/revision/latest?cb=20130216014742)
