@@ -1,14 +1,14 @@
-import * as DataLogic from './modules/data-logic.js';
+import * as FrontLogic from './modules/front-logic.js';
 
 
 $(document).ready(function(){
-  DataLogic.showPreloader();
-  DataLogic.loadFilter();
-  DataLogic.loadCards();
-  DataLogic.initFloatingBigCard();
+  FrontLogic.showPreloader();
+  FrontLogic.loadFilter();
+  FrontLogic.loadCards();
+  FrontLogic.initFloatingBigCard();
 
   $('#loadMoreButton').click(function(event){
     event.preventDefault();
-    DataLogic.loadCards();
+    FrontLogic.loadCards();
   });
 });

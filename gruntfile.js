@@ -161,10 +161,10 @@ module.exports = function def(grunt) {
     clean: ['./build/libs']
   });
 
-  grunt.registerTask('default', ['jade', 'sass', 'browserify', 'eslint', 'cssmin', 'uglify', 'clean', 'copy', 'watch']);
-  grunt.registerTask('markup', ['jade', 'sass', 'eslint', 'browserify', 'copy', 'watch']);
-  grunt.registerTask('compile', ['jade', 'sass', 'browserify', 'eslint']);
-  grunt.registerTask('deploy', ['gh-pages']);
+  grunt.registerTask('default', ['jade', 'sass', 'eslint', 'browserify', 'copy', 'cssmin', 'uglify', 'watch']);
+  grunt.registerTask('markup',  ['jade', 'sass', 'eslint', 'browserify', 'copy', 'watch']);
+  grunt.registerTask('compile', ['jade', 'sass', 'eslint', 'browserify']);
+  grunt.registerTask('deploy',  ['gh-pages']);
   grunt.registerTask('minimize', ['cssmin', 'uglify']);
 
   grunt.task.run('notify_hooks');
