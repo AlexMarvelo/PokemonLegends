@@ -1,6 +1,6 @@
 # Pokemon Legends
 This is a task project for kottans.org<br>
-Project is available on [gh-pages](http://alxmiron.github.io/PokemonLegends/)
+Project is available on [gh-pages](https://alxmiron.github.io/PokemonLegends/)
 
 ---
 
